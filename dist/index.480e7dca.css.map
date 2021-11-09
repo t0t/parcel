@@ -1,1 +1,1 @@
-{"mappings":"AAEA;EACI,kBAHS;;;AAMb;EACI","sources":["src/estilos/main.scss"],"sourcesContent":["$colorfondo: red;\n\nbody {\n    background-color: $colorfondo;\n}\n\nh1 {\n    color: white;\n}"],"names":[],"version":3,"file":"index.480e7dca.css.map","sourceRoot":"/__parcel_source_root/"}
+{"mappings":"AAEA;EACI,kBAHS;;;AAMb;EACI","sources":["src/estilos/main.scss"],"sourcesContent":["$colorfondo: green;\n\nbody {\n    background-color: $colorfondo;\n}\n\nh1 {\n    color: white;\n}"],"names":[],"version":3,"file":"index.480e7dca.css.map","sourceRoot":"/__parcel_source_root/"}
