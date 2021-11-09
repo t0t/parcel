@@ -8,13 +8,11 @@
     "pro": "parcel build src/index.html"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sergio Forés",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-pug": "^2.0.1",
     "@parcel/transformer-sass": "^2.0.1",
-    "parcel": "latest",
-    "pug": "^3.0.2",
+    "parcel": "^2.0.1",
     "sass": "^1.43.4"
   }
 }

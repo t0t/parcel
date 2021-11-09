@@ -1,0 +1,1 @@
+{"mappings":"AAEA;EACI,kBAHS","sources":["src/estilos/main.scss"],"sourcesContent":["$colorfondo: blue;\n\nbody {\n    background-color: $colorfondo;\n}"],"names":[],"version":3,"file":"index.480e7dca.css.map","sourceRoot":"/__parcel_source_root/"}
