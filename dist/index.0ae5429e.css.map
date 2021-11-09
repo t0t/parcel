@@ -1,1 +1,0 @@
-{"mappings":"AAEA,KACI,qBCDJ","sources":["src/estilos/main.scss","%3Cinput%20css%200qepao%3E"],"sourcesContent":["$colorfondo: blue;\n\nbody {\n    background-color: $colorfondo;\n}","body {\n  background-color: blue;\n}\n/*# sourceMappingURL=index.0ae5429e.css.map */\n"],"names":[],"version":3,"file":"index.0ae5429e.css.map"}

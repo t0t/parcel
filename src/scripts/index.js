@@ -1,5 +1,5 @@
-// import "../estilos/main.scss";
+import "../estilos/main.scss";
 import {getFullName} from "./utils";
 
-const firstName = getFullName("xxxxx");
+const firstName = getFullName("JStestOK");
 console.log(firstName)

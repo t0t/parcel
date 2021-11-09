@@ -1,0 +1,1 @@
+{"mappings":"AAEA,KACI,qBCDJ","sources":["src/estilos/main.scss","%3Cinput%20css%20UD1mY7%3E"],"sourcesContent":["$colorfondo: peru;\n\nbody {\n    background-color: $colorfondo;\n}","body {\n  background-color: peru;\n}\n/*# sourceMappingURL=index.8918078b.css.map */\n"],"names":[],"version":3,"file":"index.8918078b.css.map"}
