@@ -1,0 +1,22 @@
+{
+  "name": "parcel",
+  "version": "1.0.0",
+  "description": "web sergio",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "scripts": {
+    "dev": "parcel src/index.pug",
+    "pro": "parcel build src/index.pug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.0.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-pug": "^2.0.1",
+    "@parcel/transformer-sass": "^2.0.1",
+    "pug": "^3.0.2",
+    "sass": "^1.43.4"
+  }
+}
