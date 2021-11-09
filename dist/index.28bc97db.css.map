@@ -1,1 +1,0 @@
-{"mappings":"AAEA,KACI,oBCDJ","sources":["src/estilos/main.scss","%3Cinput%20css%20FpgJGV%3E"],"sourcesContent":["$colorfondo: red;\n\nbody {\n    background-color: $colorfondo;\n}","body {\n  background-color: red;\n}\n/*# sourceMappingURL=index.28bc97db.css.map */\n"],"names":[],"version":3,"file":"index.28bc97db.css.map"}

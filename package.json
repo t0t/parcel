@@ -4,15 +4,19 @@
   "description": "web sergio",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "dev": "parcel src/index.html",
-    "pro": "parcel build src/index.html"
+    "dev": "parcel src/index.pug",
+    "build": "parcel build src/index.html"
   },
   "keywords": [],
   "author": "Sergio Forés",
   "license": "ISC",
   "devDependencies": {
+    "@parcel/transformer-pug": "^2.0.1",
     "@parcel/transformer-sass": "^2.0.1",
     "parcel": "^2.0.1",
     "sass": "^1.43.4"
+  },
+  "dependencies": {
+    "moment": "^2.29.1"
   }
 }
