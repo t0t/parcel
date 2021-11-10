@@ -5,6 +5,9 @@ const d3 = require("d3");
 import "../estilos/main.scss";
 import {getFullName} from "./utils/utils";
 
+import {obras} from "./_data/obras";
+
+console.log(obras)
 
 const firstName = getFullName("JStestOK");
 console.log(firstName)

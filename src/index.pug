@@ -4,17 +4,25 @@ block head
   title home
 
 block content
-  h1 #{name}!
+  //- h1 #{name}!
+  include includes/cover.pug
+
+  //- img(src="/src/img/bg4.jpg", alt="")
+  //- input(type='checkbox' checked)
+
+  //- -var edad = 10;
+  //- if (edad < 18)
+  //-   p eres menor de edad 
+  //- else if (edad >=18)
+  //-   p eres mayor de edad
   
-  div
-    a(href="./about.pug") dddd
+  footer.blockquote--pie(style="background-image: url('./img/bg2.jpg');")
+    span.overlay
+      blockquote
+        h3
+          | &ldquo;... y cuando el Todo hubo comenzado a ordenarse, todos los elementos recibieron de Dios sus figuras por acci&oacute;n de las ideas y de los n&uacute;meros.&rdquo;
+          br
+          small &mdash; Plat&oacute;n
 
-  img(src="/src/img/bg4.jpg", alt="")
-
-  input(type='checkbox' checked)
-
-  -var edad = 10;
-  if (edad < 18)
-    p eres menor de edad 
-  else if (edad >=18)
-    p eres mayor de edad
+block js
+  script(src="./scripts/animintro.js")

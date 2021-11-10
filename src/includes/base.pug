@@ -1,23 +1,40 @@
 doctype html
-html(lang="en")
+html(lang="es")
   head
     block head 
-        meta(charset='UTF-8')
-        meta(http-equiv='X-UA-Compatible' content='IE=edge')
-        meta(name='viewport' content='width=device-width, initial-scale=1.0')
-        title Document
-        link(rel="stylesheet", href="./estilos/main.scss")
+      meta(charset='UTF-8')
+      meta(http-equiv='X-UA-Compatible' content='IE=edge')
+      meta(name='viewport' content='width=device-width, initial-scale=1.0')
+      link(rel="stylesheet", href="./estilos/main.scss")
 
-  body
+  body(style="overflow: hidden")
 
-    block header
-        include header
+    #wrap-preloader(style='display: grid; place-items: center; width: 100vw; height: 100vh;')
+      svg#preloader.animintro(viewbox='-0 -0 110 110' xmlns='http://www.w3.org/2000/svg')
+        circle.grande(cx='50%' cy='50%' r='50' vector-effect='non-scaling-stroke')
+        circle.mediano(cx='27.5%' cy='50%' r='25' vector-effect='non-scaling-stroke')
+        circle.mediano(cx='72.5%' cy='50%' r='25' vector-effect='non-scaling-stroke')
+        circle.uno(cx='15.6%' cy='50%' r='12.5' vector-effect='non-scaling-stroke')
+        circle.tres(cx='61.5%' cy='50%' r='12.5' vector-effect='non-scaling-stroke')
+        circle.dos(cx='38.5%' cy='50%' r='12.5' vector-effect='non-scaling-stroke')
+        circle.cuatro(cx='84.4%' cy='50%' r='12.5' vector-effect='non-scaling-stroke')
 
-    block content 
-    block foot
+    #theSite.fade-page-off
+
+      header
+        include brand
+        include navbar
+        include sidenav
+        span.hambutton(style="font-size:30px;cursor:pointer"
+    onclick="openNav()") &#9776;
+
+      block content 
+
+      block foot
         #footer 
-            p pie
+          include footer
 
-    //- include includes/header
+    block js
     
     script(type="module", src="./scripts/index.js")
+    
