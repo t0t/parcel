@@ -28230,4 +28230,4 @@ const getFullName = (fullName)=>{
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["grPCQ","cdtrO"], "cdtrO", "parcelRequire5b12")
 
-//# sourceMappingURL=index.66a7346f.js.map
+//# sourceMappingURL=about.66a7346f.js.map

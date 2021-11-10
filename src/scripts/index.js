@@ -14,5 +14,3 @@ const now = moment().format("YYYY-MM-DD, h:mm:ss a")
 
 console.log(now)
 console.log(d3)
-
-

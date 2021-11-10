@@ -4,5 +4,15 @@ body {
 
 h1 {
   color: white;
+  animation: parpadea infinite ease-in-out 2s;
+}
+
+@keyframes parpadea {
+  50% {
+    color: blue;
+  }
+}
+img {
+  max-width: 100%;
 }
 /*# sourceMappingURL=index.480e7dca.css.map */

@@ -4,8 +4,8 @@
   "description": "web sergio",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "dev": "parcel src/index.pug",
-    "build": "parcel build src/index.html --dist-dir public"
+    "dev": "parcel src/*.pug",
+    "build": "parcel build src/*.pug --dist-dir public"
   },
   "keywords": [],
   "author": "Sergio Forés",

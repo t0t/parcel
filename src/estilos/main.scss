@@ -1,9 +1,22 @@
-$colorfondo: green;
+@import "_variables.scss";
+@import "_reset.scss";
+@import "_animations.scss";
+@import "_preloader.scss";
+@import "_raw.scss";
+
+
 
 body {
-    background-color: $colorfondo;
+    background-color: $grey-color-2;
 }
 
 h1 {
     color: white;
+    animation: parpadea infinite ease-in-out 2s;
+}
+
+
+
+img {
+    max-width: 100%;
 }
