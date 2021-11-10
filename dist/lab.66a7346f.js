@@ -462,16 +462,151 @@ function hmrAcceptRun(bundle, id) {
 var _mainScss = require("../estilos/main.scss");
 var _utils = require("./utils/utils");
 var _obras = require("./_data/obras");
+// Sidenav open-close
+var _sidenav = require("./sidenav");
 const moment = require("moment");
 const d3 = require("d3");
-console.log(_obras.obras);
+const hambutton = document.getElementById("hambutton");
+hambutton.addEventListener("click", _sidenav.openNav);
+const closesidenav = document.getElementById("closesidenav");
+closesidenav.addEventListener("click", _sidenav.closeNav);
 const firstName = _utils.getFullName("JStestOK");
 console.log(firstName);
 const now = moment().format("YYYY-MM-DD, h:mm:ss a");
 console.log(now);
 console.log(d3);
+// LOADER con fundido
+let loader = document.getElementById("wrap-preloader");
+let theSite = document.getElementById("theSite");
+let noOverflow = document.querySelector("body");
+// Cuando carge todo, DOM, recursos, etc
+window.addEventListener("load", ()=>{
+    fundidoPagina();
+    // oculta el loader
+    loader.style.display = "none"; //poner en none/grid
+    // Muestra la pagina
+    theSite.style.display = "inherit";
+    noOverflow.style.overflow = "visible";
+});
+let fundidoPagina = ()=>{
+    document.querySelector("#theSite").classList.add("fade-page-on");
+};
+// scale
+// set the dimensions and margins of the graph
+var width = 450;
+var height = 450;
+// append the svg object to the body of the page
+var svg = d3.select("#animcover").append("svg").attr("width", width).attr("height", height);
+// create dummy data -> just one element per circle
+const data = [
+    {
+        name: 'Uno',
+        group: 1
+    },
+    {
+        name: 'Dos',
+        group: 2
+    },
+    {
+        name: 'Tres',
+        group: 3
+    },
+    {
+        name: 'Cuatro',
+        group: 4
+    },
+    {
+        name: 'F',
+        group: 5
+    },
+    {
+        name: 'E',
+        group: 5
+    },
+    {
+        name: 'G',
+        group: 5
+    },
+    {
+        name: 'H',
+        group: 5
+    },
+    {
+        name: 'I',
+        group: 5
+    },
+    {
+        name: 'J',
+        group: 5
+    }
+];
+// A scale that gives a X target position for each group
+const x = d3.scaleOrdinal().domain([
+    1,
+    2,
+    3,
+    4,
+    5
+]).range([
+    50,
+    50,
+    50,
+    50,
+    50
+]);
+// A color scale
+const color = d3.scaleOrdinal().domain([
+    1,
+    2,
+    3,
+    4,
+    5
+]).range([
+    "#FF6874",
+    "#2BC4A9",
+    "#9F9FFF",
+    "#FFFF9F",
+    "#000"
+]);
+// Randomize size
+function randomNumber(min, max) {
+    return Math.random() * (max - min) + min;
+}
+const radio = 48;
+// Initialize the circle: all located at the center of the svg area
+let node = svg.append("g").selectAll("circle").data(data).join("circle").attr("r", radio).attr("cx", width / 2).attr("cy", height / 2).style("fill", (d)=>color(d.group)
+).attr("stroke-width", "4").call(d3.drag() // call specific function when circle is dragged
+.on("start", dragstarted).on("drag", dragged).on("end", dragended));
+// Features of the forces applied to the nodes:
+var simulation = d3.forceSimulation().force("x", d3.forceX().strength(0.3).x((d)=>x(d.group)
+)).force("y", d3.forceY().strength(0.1).y(height / 2)).force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Attraction to the center of the svg area
+.force("charge", d3.forceManyBody().strength(0.1)) // Nodes are attracted one each other of value is > 0
+.force("collide", d3.forceCollide().strength(8).radius(radio).iterations(3)) // Force that avoids circle overlapping
+;
+// Apply these forces to the nodes and update their positions.
+// Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
+simulation.nodes(data).on("tick", (d1)=>{
+    node.attr("cx", (d)=>d.x
+    ).attr("cy", (d)=>d.y
+    );
+});
+// What happens when a circle is dragged?
+function dragstarted(event, d) {
+    if (!event.active) simulation.alphaTarget(0.03).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+}
+function dragged(event, d) {
+    d.fx = event.x;
+    d.fy = event.y;
+}
+function dragended(event, d) {
+    if (!event.active) simulation.alphaTarget(0.03);
+    d.fx = null;
+    d.fy = null;
+}
 
-},{"moment":"1RrsF","d3":"97vK6","../estilos/main.scss":"hGvuj","./utils/utils":"csoad","./_data/obras":"k5Gz3"}],"1RrsF":[function(require,module,exports) {
+},{"moment":"1RrsF","d3":"97vK6","../estilos/main.scss":"hGvuj","./utils/utils":"csoad","./_data/obras":"k5Gz3","./sidenav":"9MwHJ"}],"1RrsF":[function(require,module,exports) {
 (function(global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : global.moment = factory();
 })(this, function() {
@@ -28293,6 +28428,28 @@ const obras = [
         "ref": "131020"
     }
 ];
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"9MwHJ":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "openNav", ()=>openNav
+);
+parcelHelpers.export(exports, "closeNav", ()=>closeNav
+);
+function openNav() {
+    document.getElementById("mySidenav").style.width = "50vw";
+    // document.getElementById("theSite").style.marginRight = "75vw";
+    document.getElementById("maincontent").style.opacity = "0.3";
+    document.getElementById("maincontent").style.mixBlendMode = "overlay";
+    document.body.style.overflow = "hidden";
+}
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    // document.getElementById("theSite").style.marginRight= "0";
+    document.getElementById("maincontent").style.opacity = "inherit";
+    document.getElementById("maincontent").style.mixBlendMode = "inherit";
+    document.body.style.overflow = "inherit";
+}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["grPCQ","cdtrO"], "cdtrO", "parcelRequire5b12")
 

@@ -483,6 +483,12 @@ pre > code.highlight {
   padding-left: 1.6rem;
   padding-right: 1.6rem;
 }
+.headerContent {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  align-content: center;
+}
 body {
   margin: 0;
   color: black;
@@ -655,6 +661,7 @@ hr {
   place-items: center;
   background-color: #6f6f6f;
 }
+/* Nav */
 .nav {
   display: none;
 }
@@ -1276,6 +1283,7 @@ img.hover-shadow {
   position: fixed;
   top: 1.6rem;
   right: 1.6rem;
+  z-index: 98;
 }
 .nav-posts {
   list-style: none;

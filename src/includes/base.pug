@@ -8,7 +8,6 @@ html(lang="es")
       link(rel="stylesheet", href="./estilos/main.scss")
 
   body(style="overflow: hidden")
-
     #wrap-preloader(style='display: grid; place-items: center; width: 100vw; height: 100vh;')
       svg#preloader.animintro(viewbox='-0 -0 110 110' xmlns='http://www.w3.org/2000/svg')
         circle.grande(cx='50%' cy='50%' r='50' vector-effect='non-scaling-stroke')
@@ -20,21 +19,20 @@ html(lang="es")
         circle.cuatro(cx='84.4%' cy='50%' r='12.5' vector-effect='non-scaling-stroke')
 
     #theSite.fade-page-off
-
-      header
+      .mainNav
         include brand
         include navbar
         include sidenav
-        span.hambutton(style="font-size:30px;cursor:pointer"
-    onclick="openNav()") &#9776;
+        span#hambutton.hambutton(style="font-size:30px;cursor:pointer") &#9776;
 
-      block content 
+      #maincontent
+        block content 
 
       block foot
         #footer 
           include footer
 
     block js
-    
+
     script(type="module", src="./scripts/index.js")
     

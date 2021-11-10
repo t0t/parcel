@@ -4,8 +4,10 @@ block head
   title home
 
 block content
+  header.headerContent
+    include includes/cover.pug
+
   //- h1 #{name}!
-  include includes/cover.pug
 
   //- img(src="/src/img/bg4.jpg", alt="")
   //- input(type='checkbox' checked)
@@ -25,4 +27,4 @@ block content
           small &mdash; Plat&oacute;n
 
 block js
-  script(src="./scripts/animintro.js")
+  //- script(src="./scripts/animintro.js")
