@@ -1,19 +1,19 @@
-extends includes/base.pug
+extends includes/baseblog
 
 block head
   title escritos
 
-block content
+block pageheader
   header.headerContent
+    h1.titlePage
+      | Artículos
+    p.subTitlePage
+      | "En ocasiones escribo cosas". Éstas están en permanente proceso de reelaboración.
 
-  h1 Escritos!
-  //- a(href="/")
-
-
-  //- input(type='checkbox' checked)
-
-  //- -var edad = 10;
-  //- if (edad < 18)
-  //-   p eres menor de edad 
-  //- else if (edad >=18)
-  //-   p eres mayor de edad
+block content
+  ol.postlist.grid
+    each article in articles
+      li.grid__item.postlist-item
+        a.postlist-link(href=`${article.url}`) 
+          h3= article.title
+          img(src=article.img, alt=article.title)

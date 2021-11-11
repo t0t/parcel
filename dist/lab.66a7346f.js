@@ -459,10 +459,13 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"cdtrO":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _mainScss = require("../estilos/main.scss");
 var _utils = require("./utils/utils");
 // Sidenav open-close
 var _sidenav = require("./sidenav");
+var _datablogJson = require("./data/datablog.json");
+var _datablogJsonDefault = parcelHelpers.interopDefault(_datablogJson);
 const moment = require("moment");
 const d3 = require("d3");
 console.log("cargado d3" + d3);
@@ -472,6 +475,8 @@ const hambutton = document.getElementById("hambutton");
 hambutton.addEventListener("click", _sidenav.openNav);
 const closesidenav = document.getElementById("closesidenav");
 closesidenav.addEventListener("click", _sidenav.closeNav);
+console.log(_datablogJsonDefault.default);
+// => "world"
 // ANIMINTRO
 let width = 450;
 let height = 450;
@@ -865,7 +870,7 @@ if (!isSafari && !isMobileDevice()) {
     };
 }
 
-},{"../estilos/main.scss":"hGvuj","moment":"1RrsF","d3":"97vK6","./utils/utils":"csoad","./sidenav":"9MwHJ"}],"hGvuj":[function() {},{}],"1RrsF":[function(require,module,exports) {
+},{"../estilos/main.scss":"hGvuj","moment":"1RrsF","d3":"97vK6","./utils/utils":"csoad","./sidenav":"9MwHJ","./data/datablog.json":"3sIRw","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hGvuj":[function() {},{}],"1RrsF":[function(require,module,exports) {
 (function(global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : global.moment = factory();
 })(this, function() {
@@ -28646,6 +28651,9 @@ function closeNav() {
     document.body.style.overflow = "inherit";
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}]},["grPCQ","cdtrO"], "cdtrO", "parcelRequire5b12")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3sIRw":[function(require,module,exports) {
+module.exports = JSON.parse("{\"datablog\":[{\"id\":1,\"title\":\"post 1\",\"url\":\"/blog\",\"content\":\"parrafo\"}]}");
+
+},{}]},["grPCQ","cdtrO"], "cdtrO", "parcelRequire5b12")
 
 //# sourceMappingURL=lab.66a7346f.js.map

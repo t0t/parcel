@@ -7,13 +7,15 @@ block content
   header.headerContent
     include includes/cover.pug
   
+  include includes/features.pug
+  
   footer.blockquote--pie(style="background-image: url('./img/bg2.jpg');")
     span.overlay
       blockquote
         h3
-          | &ldquo;... y cuando el Todo hubo comenzado a ordenarse, todos los elementos recibieron de Dios sus figuras por acci&oacute;n de las ideas y de los n&uacute;meros.&rdquo;
+          | &ldquo;... y cuando el Todo hubo comenzado a ordenarse, todos los elementos recibieron de Dios sus figuras por acción de las ideas y de los números.&rdquo;
           br
-          small &mdash; Plat&oacute;n
+          small &mdash; Platón
 
   block append scripts
     //- script(src="./scripts/animintro.js", type="module")

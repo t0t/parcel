@@ -14,6 +14,10 @@ hambutton.addEventListener("click", openNav)
 const closesidenav = document.getElementById("closesidenav");
 closesidenav.addEventListener("click", closeNav)
 
+import datablog from './data/datablog.json';
+console.log(datablog);
+// => "world"
+
 
 // ANIMINTRO
 let width = 450

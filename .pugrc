@@ -279,6 +279,78 @@
         "frecuencia": "112",
         "descripcion": "Contexto dual"
       }
+    ],
+    "articles": [
+      {
+        "id": 1,
+        "title": "Cómo sostener el interés por tus proyectos",
+        "img": "./img/bg4.jpg",
+        "description": "La montaña gusta de lo que ya no me gusta",
+        "url": "./article1.pug"
+      },
+      {
+        "id": 2,
+        "title": "La Creatividad es un Proceso Universal",
+        "img": "./img/blog/creatividad-universal.svg",
+        "description": "Estructura dinámica sobre la que se asienta toda la Creación.",
+        "url": "./article2.pug"
+      },
+      {
+        "id": 3,
+        "title": "Des-cifrando con y desde 01234",
+        "img": "./img/bg2.jpg",
+        "description": "",
+        "url": "./article3.pug"
+      },
+      {
+        "id": 4,
+        "title": "Hermeneutica, el arte de descifrar",
+        "img": "./img/bg3.jpg",
+        "description": "El arte o la técnica de explicar, descifrar o interpretar",
+        "url": "./article4.pug"
+      },
+      {
+        "id": 5,
+        "title": "La importancia de las Crisis",
+        "img": "./img/pieza.jpg",
+        "description": "La noche oscura del alma",
+        "url": "./article5.pug"
+      },
+      {
+        "id": 6,
+        "title": "La importancia del sincretismo, el arte y lo simbólico",
+        "img": "./img/blog/arte3d.jpeg",
+        "description": "Estructura dinámica sobre la que se asienta toda la Creación.",
+        "url": "./article6.pug"
+      },
+      {
+        "id": 7,
+        "title": "Los principios universales",
+        "img": "./img/bg1.jpg",
+        "description": "o dimensionales que usa la Creación",
+        "url": "./article7.pug"
+      },
+      {
+        "id": 8,
+        "title": "No da lo mismo que todo sea lo mismo",
+        "img": "./img/bg2.jpg",
+        "description": "Notas acerca de la jerarquía tecnológica como orden sagrado",
+        "url": "./article8.pug"
+      },
+      {
+        "id": 9,
+        "title": "Practicando la percepción",
+        "img": "./img/bg3.jpg",
+        "description": "Percibiendo desde el nivel abstracto de la mente",
+        "url": "./article9.pug"
+      },
+      {
+        "id": 10,
+        "title": "Sobredosis de información, creatividad y distracciones",
+        "img": "./img/arte3d.jpeg",
+        "description": "Faltas y/o excesos",
+        "url": "./article10.pug"
+      }
     ]
   }
 }
