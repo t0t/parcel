@@ -8,6 +8,7 @@ block content
     h1.titlePage La poes&iacute;a de la materia
     p.subTitlePage
       | Mis pinturas al ser tridimensionales son esculpidas por una luz que es real.
+      
   section.grid.bgcolor-grey-1
     .grid__item
       video#video1(poster='./img/arte3d.jpeg')
@@ -26,31 +27,27 @@ block content
     hr
     h3 En exposición
     .gallery
-      //- require("./scripts/_data/obras.js")
-      ul
-        each obra in [{preview:"dd",title:"dd",id: 0}]
-          p= obra.title
-          //- .gallery__item
-          //-   img.hover-shadow.preview(src=' obra.preview ' alt=' obra.title' onclick='openLightbox();toSlide( obra.id )')
-          //-   br
-          //-   small obra.title
+      each obra in obras
+        .gallery__item
+          img#openlightbox.hover-shadow.preview(src=obra.preview alt=obra.title onclick=`openLightbox(); toSlide(${obra.id})`)
+          small= obra.title
 
   #Lightbox.modal
-    span.close.pointer(onclick='closeLightbox()') &times;
+    span.close.pointer(onclick=`closeLightbox()`) &times;
 
     .modal-content
-      //- each obra in obras.obras
-      //-   .slide
-      //-     img.image-slide(src=' obra.imagen ' alt=' obra.title ')
-      //-     small
-      //-       strong obra.title
-      //-       |  obra.description. REF: obra.ref
+      each obra in obras
+        .slide
+          img.image-slide(src=obra.imagen alt=obra.title)
+          small
+            strong= obra.title
+            | obra.description. REF: obra.ref
 
-      a.previous(onclick='changeSlide(-1)') &#x276E;
-      a.next(onclick='changeSlide(1)') &#x276F;
+      a.previous(onclick=`changeSlide(-1)`) &#x276E;
+      a.next(onclick=`changeSlide(1)`) &#x276F;
       .dots
-        //- each obra in obras.obras
-        //-   img.modal-preview.hover-shadow(src=' obra.preview ' alt=' obra.title ' onclick='toSlide( obra.id )')
+        each obra in obras
+          img.modal-preview.hover-shadow(src= obra.preview  alt= obra.title  onclick=`toSlide( ${obra.id })`)
 
   section
     hr
@@ -95,5 +92,5 @@ block content
         br
         small &mdash; Gadamer
 
-  //- script(src="./scripts/lightbox.js")
+  script( src="./scripts/lightbox.js")
   script(type="module" src="./scripts/videoplayer.js")

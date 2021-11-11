@@ -1,5 +1,4 @@
 nav#navbar.nav
-    each link in [{url: "./index.pug", name: "home", id: 0},{url: "./escritos.pug", name: "Escritos", id: 1},{url: "./sobremi.pug", name: "Sobre mi", id: 2},{url: "./obra.pug", name: "Obra", id: 3},{url: "./lab.pug", name: "Lab", id: 4}]
-        ul
-            li(class='nav-item nav-item-active')
-                a(href=link.url)= link.name
+    each link in [{url: "./escritos.pug", name: "Escritos", id: 1},{url: "./sobremi.pug", name: "Sobre mi", id: 2},{url: "./obra.pug", name: "Obra", id: 3},{url: "./lab.pug", name: "Lab", id: 4}]
+        li(class='nav-item nav-item-active')
+            a(href=link.url)= link.name

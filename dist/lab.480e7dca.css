@@ -477,6 +477,9 @@ pre > code.highlight {
   background-color: #ffffff77;
 }
 /* Global stylesheet */
+.nav-item {
+  text-decoration: none;
+}
 .content {
   background-color: #FF6874;
   padding-bottom: 4.1rem;
@@ -1137,7 +1140,6 @@ model-viewer {
 }
 .image-slide + small {
   text-align: center;
-  font-size: 1rem;
   line-height: 1.7;
   color: #dad9d9;
 }
@@ -1283,7 +1285,6 @@ img.hover-shadow {
   position: fixed;
   top: 1.6rem;
   right: 1.6rem;
-  z-index: 98;
 }
 .nav-posts {
   list-style: none;
@@ -1610,10 +1611,12 @@ img.hover-shadow {
     justify-self: end;
   }
 
-  .nav-item-active a,
-.nav-item-active a:hover {
+  .nav-item-active a {
     background-color: #2BC4A9;
-    cursor: default;
+  }
+
+  .nav-item-active a:hover {
+    cursor: pointer;
   }
 
   /* hambutton */

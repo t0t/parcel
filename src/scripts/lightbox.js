@@ -40,3 +40,4 @@ function showSlide(n) {
   slides[slideIndex - 1].style.display = 'grid';
   modalPreviews[slideIndex - 1].className += ' active';
 }
+

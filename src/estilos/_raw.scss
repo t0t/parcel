@@ -1,6 +1,8 @@
 /* Global stylesheet */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap');
-
+.nav-item {
+    text-decoration: none;
+}
 .content {
     background-color: $primary-color;
     padding-bottom: $size-4;
@@ -805,9 +807,9 @@ model-viewer {
     margin-bottom: $size-2;
 }
 
-.image-slide+small {
+.image-slide + small {
     text-align: center;
-    font-size: $size-1;
+    // font-size: $size-1;
     line-height: 1.7;
     color: $grey-color-1;
 }
@@ -979,7 +981,7 @@ img.hover-shadow {
     position: fixed;
     top: $size-2;
     right: $size-2;
-    z-index: 98;
+    // z-index: 98;
 }
 
 .nav-posts {
@@ -1326,10 +1328,11 @@ img.hover-shadow {
         justify-self: end;
     }
 
-    .nav-item-active a,
-    .nav-item-active a:hover {
+    .nav-item-active a {
         background-color: $secondary-color;
-        cursor: default;
+    }
+    .nav-item-active a:hover {
+        cursor: pointer;
     }
 
     /* hambutton */
