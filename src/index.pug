@@ -6,17 +6,6 @@ block head
 block content
   header.headerContent
     include includes/cover.pug
-
-  //- h1 #{name}!
-
-  //- img(src="/src/img/bg4.jpg", alt="")
-  //- input(type='checkbox' checked)
-
-  //- -var edad = 10;
-  //- if (edad < 18)
-  //-   p eres menor de edad 
-  //- else if (edad >=18)
-  //-   p eres mayor de edad
   
   footer.blockquote--pie(style="background-image: url('./img/bg2.jpg');")
     span.overlay
@@ -26,5 +15,5 @@ block content
           br
           small &mdash; Plat&oacute;n
 
-block js
-  //- script(src="./scripts/animintro.js")
+  block append scripts
+    //- script(src="./scripts/animintro.js", type="module")

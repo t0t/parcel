@@ -1,4 +1,3 @@
-// scale
 // set the dimensions and margins of the graph
 var width = 450
 var height = 450
@@ -10,7 +9,7 @@ var svg = d3.select("#animcover")
     .attr("height", height)
 
 // create dummy data -> just one element per circle
-const data = [
+const ddttss = [
   { name: 'Uno', group: 1 },
   { name: 'Dos', group: 2 },
   { name: 'Tres', group: 3 },
@@ -42,7 +41,7 @@ const radio = 48;
 // Initialize the circle: all located at the center of the svg area
 let node = svg.append("g")
   .selectAll("circle")
-  .data(data)
+  .data(ddttss)
   .join("circle")
     .attr("r", radio)
     .attr("cx", width / 2)
@@ -65,7 +64,7 @@ var simulation = d3.forceSimulation()
 // Apply these forces to the nodes and update their positions.
 // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
 simulation
-    .nodes(data)
+    .nodes(ddttss)
     .on("tick", d => {
       node
           .attr("cx", d => d.x)

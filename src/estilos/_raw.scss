@@ -1,14 +1,17 @@
 /* Global stylesheet */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700&display=swap');
+
 .nav-item {
     text-decoration: none;
 }
+
 .content {
     background-color: $primary-color;
     padding-bottom: $size-4;
     padding-left: $size-2;
     padding-right: $size-2;
 }
+
 .headerContent {
     height: 100vh;
     display: grid;
@@ -59,10 +62,6 @@ video {
 
 section {
     width: 100%;
-}
-
-.nomargin {
-    margin: 0px;
 }
 
 .section--video {
@@ -307,33 +306,30 @@ svg.grafica {
     width: 100%;
     height: 50vh;
     background-color: $grey-color-0;
-}
-
-svg.grafica g {
-    fill: none;
-    stroke: $black-color;
-    transform: scale(7);
-}
-
-svg.grafica path {
-    fill: $quaternary-color;
-    stroke-width: 5px;
-    stroke-dashoffset: 50px;
-    stroke-dasharray: 540px;
-    animation: dash2;
-    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-    stroke: $primary-color;
-}
-
-svg.grafica rect {
-    fill: $secondary-color;
-}
-
-svg.grafica text {
-    fill: $black-color;
-    font-size: 3px;
+    
+    g {
+        fill: none;
+        stroke: $black-color;
+        transform: scale(7);
+    }
+    path {
+        fill: $quaternary-color;
+        stroke-width: 5px;
+        stroke-dashoffset: 50px;
+        stroke-dasharray: 540px;
+        animation: dash2;
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        stroke: $primary-color;
+    }
+    rect {
+        fill: $secondary-color;
+    }
+    text {
+        fill: $black-color;
+        font-size: 3px;
+    }
 }
 
 .output {
@@ -343,34 +339,29 @@ svg.grafica text {
     color: $primary-color;
     transform: scale(3) rotate(-30deg);
     background-color: $quaternary-color;
-}
 
-.output.resultado {
-    color: inherit;
-    opacity: 1;
-    transition: background-color 3s, opacity 3s, color 6s, transform 2s;
-    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform: translate($size-2, $size-2) scale(1) rotae(0deg);
-    background-color: transparent;
+    &.resultado {
+        color: inherit;
+        opacity: 1;
+        transition: background-color 3s, opacity 3s, color 6s, transform 2s;
+        transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        transform: translate($size-2, $size-2) scale(1) rotate(0deg);
+        background-color: transparent;
+    }
 }
 
 .codigos-ejemplo {
     text-align: center;
     padding: 0 $size-3 $size-2;
-}
-
-// .codigos-ejemplo dt {
-//   /* text-align: right; */
-// }
-
-.codigos-ejemplo dt span {
-    font-weight: $bold;
-}
-
-.codigos-ejemplo dd {
-    margin-left: $size-1;
-    font-size: $size-0;
-    line-height: 1.5;
+    
+    dt span {
+        font-weight: $bold;
+    }
+    dd {
+        margin-left: $size-1;
+        font-size: $size-0;
+        line-height: 1.5;
+    }
 }
 
 .menu3d {
@@ -559,7 +550,7 @@ img {
 }
 
 // /* avoid double line breaks when using display: block; */
-.highlight-line+br {
+.highlight-line + br {
     display: none;
 }
 
@@ -1093,24 +1084,27 @@ img.hover-shadow {
         transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
-    #metodosvg #cero {
-        fill: $grey-color-4;
-    }
+    #metodosvg {
 
-    #metodosvg #uno {
-        fill: $secondary-color;
-    }
+        #cero {
+            fill: $grey-color-4;
+        }
 
-    #metodosvg #dos {
-        fill: $primary-color;
-    }
+        #uno {
+            fill: $secondary-color;
+        }
 
-    #metodosvg #tres {
-        fill: $tertiary-color;
-    }
-
-    #metodosvg #cuatro {
-        fill: $quaternary-color;
+        #dos {
+            fill: $primary-color;
+        }
+        
+        #tres {
+            fill: $tertiary-color;
+        }
+        
+        #cuatro {
+            fill: $quaternary-color;
+        }
     }
 
     #metodosvg #siete,

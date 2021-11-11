@@ -1,4 +1,3 @@
-function DOMCargado() {
 
   let input = document.getElementById("entrada");
   let btnGenerar = document.getElementById("lanza");
@@ -250,6 +249,3 @@ function DOMCargado() {
   // let sz2 = 20;
   // let sz3 = 30;
   // let pPath = `M 0,0 C -${sz2},-${sz2}, -${sz2},-${sz3} 0,-${sz1} C ${sz2},-${sz3} ${sz2},-${sz2} 0,0`;
-
-}
-document.addEventListener("DOMContentLoaded", DOMCargado);

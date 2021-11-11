@@ -1,6 +1,6 @@
 extends includes/base.pug
 
-block head
+block append head
   title lab
 
 block content
@@ -9,6 +9,9 @@ block content
       | Laboratorio
     p.subTitlePage
       | Para ver la l&oacute;gica creativa de este momento
+
+  include includes/app.pug
+
   footer.blockquote--pie(style="background-image: url('./img/img3.jpg');")
     
     blockquote
@@ -16,4 +19,6 @@ block content
         | &quot;S&oacute;lo cuando bajamos al abismo recuperamos los aut&eacute;nticos tesoros de la vida.&quot;
         br
         small &mdash; Joseph Campbell
-  //- script(src="./scripts/app.js" type='module')
+  
+  block append scripts
+    //- script(type="module", src="./scripts/app.js")

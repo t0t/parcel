@@ -323,6 +323,9 @@ pre > code.highlight {
   animation: parpadeo 2s linear 1;
   opacity: 0;
 }
+.nomargin {
+  margin: 0px;
+}
 .tar {
   text-align: right;
 }
@@ -526,9 +529,6 @@ video {
 }
 section {
   width: 100%;
-}
-.nomargin {
-  margin: 0px;
 }
 .section--video {
   display: grid;
@@ -771,7 +771,7 @@ svg.grafica text {
   opacity: 1;
   transition: background-color 3s, opacity 3s, color 6s, transform 2s;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transform: translate(1.6rem, 1.6rem) scale(1) rotae(0deg);
+  transform: translate(1.6rem, 1.6rem) scale(1) rotate(0deg);
   background-color: transparent;
 }
 .codigos-ejemplo {
@@ -1388,19 +1388,15 @@ img.hover-shadow {
   #metodosvg #cero {
     fill: #2e2e2e;
   }
-
   #metodosvg #uno {
     fill: #2BC4A9;
   }
-
   #metodosvg #dos {
     fill: #FF6874;
   }
-
   #metodosvg #tres {
     fill: #9F9FFF;
   }
-
   #metodosvg #cuatro {
     fill: #FFFF9F;
   }

@@ -1,5 +1,5 @@
 doctype html
-html(lang="es")
+html(lang='es')
   head
     block head 
       meta(charset='UTF-8')
@@ -32,7 +32,5 @@ html(lang="es")
         #footer 
           include footer
 
-    block js
-      script console.log('Hello, world!')
-    script(type="module", src="./scripts/index.js")
-    
+    block scripts
+      script(type="module", src="./scripts/index.js")
