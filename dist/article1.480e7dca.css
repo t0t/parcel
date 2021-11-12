@@ -385,8 +385,10 @@ figure {
   display: grid;
   place-items: center;
   gap: 1.6rem;
+  padding-top: 6.64rem;
+  padding-bottom: 6.64rem;
 }
-figcaption {
+figure figcaption {
   font-size: 0.61rem;
   line-height: 1rem;
   padding-left: 1rem;
@@ -435,7 +437,13 @@ h3 {
   line-height: 1rem;
   margin-bottom: 0.61rem;
   text-align: center;
-  font-weight: 400;
+}
+@media screen and (min-width: 766px) {
+  h2,
+h3 {
+    padding-top: 4.1rem;
+    padding-bottom: 4.1rem;
+  }
 }
 @media screen and (min-width: 1438px) {
   h2,
@@ -458,17 +466,20 @@ h4 {
   margin-bottom: 4.1rem;
   color: #2BC4A9;
 }
+p,
 ul,
 dl,
 p strong,
 h3,
 blockquote {
-  line-height: 1.95rem;
-  letter-spacing: 0.3px;
-  word-spacing: 1px;
+  line-height: 2rem;
+  letter-spacing: 0.2px;
+  word-spacing: 0.5px;
+}
+em {
+  font-weight: 500;
 }
 p {
-  line-height: 1.8;
   font-size: 1rem;
   margin-bottom: 1.6rem;
 }
@@ -494,8 +505,6 @@ p,
 img,
 pre,
 ul {
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
   max-width: 100%;
 }
 @media screen and (min-width: 766px) {
@@ -556,10 +565,10 @@ blockquote {
 hr {
   width: 4.1rem;
   background-color: #2BC4A9;
-  padding: 2px;
+  padding: 0.5px;
   border: none;
-  margin-top: 2.59rem;
-  margin-bottom: 2.59rem;
+  margin-top: 6.64rem;
+  margin-bottom: 6.64rem;
 }
 .footer-site {
   display: grid;
@@ -954,10 +963,8 @@ img {
   margin-top: 1rem;
   margin-bottom: 4.1rem;
 }
-.blog h2 {
-  font-size: 1.6rem;
-  padding-top: 4.1rem;
-  padding-bottom: 4.1rem;
+.blog:last-child {
+  padding-bottom: 6.64rem;
 }
 /* Tags */
 .post-tag {
