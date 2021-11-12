@@ -19,6 +19,30 @@ import datablog from './data/datablog.json';
 console.log(datablog);
 // => "world"
 
+import Typewriter from '../../node_modules/typewriter-effect/dist/core';
+
+// new Typewriter('#typewriter', {
+//   strings: ['Hello', 'World'],
+//   autoStart: true,
+// });
+const typeHeading = document.getElementById('typewritter');
+console.log(typeHeading)
+
+let typewriter = new Typewriter(typeHeading, {
+  loop: false,
+  delay: 95,
+});
+
+typewriter
+  .pauseFor(1500)
+  .typeString('Descifrar toda la Vida')
+  .pauseFor(2000)
+  .deleteChars(13)
+  .typeString(' La Creación para encontrArte')
+  .typeString('<span style="color: #2BC4A9;"> desde Cero.</span>')
+  .pauseFor(4000)
+  .start();
+
 
 // ANIMINTRO
 let width = 450

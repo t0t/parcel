@@ -466,6 +466,9 @@ var _utils = require("./utils/utils");
 var _sidenav = require("./sidenav");
 var _datablogJson = require("./data/datablog.json");
 var _datablogJsonDefault = parcelHelpers.interopDefault(_datablogJson);
+// => "world"
+var _core = require("../../node_modules/typewriter-effect/dist/core");
+var _coreDefault = parcelHelpers.interopDefault(_core);
 const moment = require("moment");
 const d3 = require("d3");
 console.log("cargado d3" + d3);
@@ -476,7 +479,17 @@ hambutton.addEventListener("click", _sidenav.openNav);
 const closesidenav = document.getElementById("closesidenav");
 closesidenav.addEventListener("click", _sidenav.closeNav);
 console.log(_datablogJsonDefault.default);
-// => "world"
+// new Typewriter('#typewriter', {
+//   strings: ['Hello', 'World'],
+//   autoStart: true,
+// });
+const typeHeading = document.getElementById('typewritter');
+console.log(typeHeading);
+let typewriter = new _coreDefault.default(typeHeading, {
+    loop: false,
+    delay: 95
+});
+typewriter.pauseFor(1500).typeString('Descifrar toda la Vida').pauseFor(2000).deleteChars(13).typeString(' La Creación para encontrArte').typeString('<span style="color: #2BC4A9;"> desde Cero.</span>').pauseFor(4000).start();
 // ANIMINTRO
 let width = 450;
 let height = 450;
@@ -870,7 +883,7 @@ if (!isSafari && !isMobileDevice()) {
     };
 }
 
-},{"../estilos/main.scss":"hGvuj","moment":"1RrsF","d3":"97vK6","./utils/utils":"csoad","./sidenav":"9MwHJ","./data/datablog.json":"3sIRw","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hGvuj":[function() {},{}],"1RrsF":[function(require,module,exports) {
+},{"../estilos/main.scss":"hGvuj","moment":"1RrsF","d3":"97vK6","./utils/utils":"csoad","./sidenav":"9MwHJ","./data/datablog.json":"3sIRw","../../node_modules/typewriter-effect/dist/core":"hXq0y","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"hGvuj":[function() {},{}],"1RrsF":[function(require,module,exports) {
 (function(global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : global.moment = factory();
 })(this, function() {
@@ -28653,6 +28666,605 @@ function closeNav() {
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV"}],"3sIRw":[function(require,module,exports) {
 module.exports = JSON.parse("{\"datablog\":[{\"id\":1,\"title\":\"post 1\",\"url\":\"/blog\",\"content\":\"parrafo\"}]}");
+
+},{}],"hXq0y":[function(require,module,exports) {
+var process = require("process");
+!function(e, t) {
+    "object" == typeof exports && "object" == typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define("Typewriter", [], t) : "object" == typeof exports ? exports.Typewriter = t() : e.Typewriter = t();
+}("undefined" != typeof self ? self : this, function() {
+    return (()=>{
+        var e1 = {
+            75: function(e2) {
+                (function() {
+                    var t, n, r, o, a, s;
+                    "undefined" != typeof performance && null !== performance && performance.now ? e2.exports = function() {
+                        return performance.now();
+                    } : "undefined" != typeof process && null !== process && process.hrtime ? (e2.exports = function() {
+                        return (t() - a) / 1000000;
+                    }, n = process.hrtime, o = (t = function() {
+                        var e;
+                        return 1000000000 * (e = n())[0] + e[1];
+                    })(), s = 1000000000 * process.uptime(), a = o - s) : Date.now ? (e2.exports = function() {
+                        return Date.now() - r;
+                    }, r = Date.now()) : (e2.exports = function() {
+                        return (new Date).getTime() - r;
+                    }, r = (new Date).getTime());
+                }).call(this);
+            },
+            4087: (e3, t2, n2)=>{
+                for(var r = n2(75), o = "undefined" == typeof window ? n2.g : window, a = [
+                    "moz",
+                    "webkit"
+                ], s = "AnimationFrame", i = o["request" + s], u = o["cancel" + s] || o["cancelRequest" + s], l = 0; !i && l < a.length; l++)i = o[a[l] + "Request" + s], u = o[a[l] + "Cancel" + s] || o[a[l] + "CancelRequest" + s];
+                if (!i || !u) {
+                    var c = 0, p = 0, d = [];
+                    i = function(e4) {
+                        if (0 === d.length) {
+                            var t3 = r(), n = Math.max(0, 16.666666666666668 - (t3 - c));
+                            c = n + t3, setTimeout(function() {
+                                var e = d.slice(0);
+                                d.length = 0;
+                                for(var t = 0; t < e.length; t++)if (!e[t].cancelled) try {
+                                    e[t].callback(c);
+                                } catch (e5) {
+                                    setTimeout(function() {
+                                        throw e5;
+                                    }, 0);
+                                }
+                            }, Math.round(n));
+                        }
+                        return d.push({
+                            handle: ++p,
+                            callback: e4,
+                            cancelled: !1
+                        }), p;
+                    }, u = function(e) {
+                        for(var t = 0; t < d.length; t++)d[t].handle === e && (d[t].cancelled = !0);
+                    };
+                }
+                e3.exports = function(e) {
+                    return i.call(o, e);
+                }, e3.exports.cancel = function() {
+                    u.apply(o, arguments);
+                }, e3.exports.polyfill = function(e) {
+                    e || (e = o), e.requestAnimationFrame = i, e.cancelAnimationFrame = u;
+                };
+            }
+        }, t1 = {
+        };
+        function n1(r) {
+            var o = t1[r];
+            if (void 0 !== o) return o.exports;
+            var a = t1[r] = {
+                exports: {
+                }
+            };
+            return e1[r].call(a.exports, a, a.exports, n1), a.exports;
+        }
+        n1.n = (e)=>{
+            var t = e && e.__esModule ? ()=>e.default
+             : ()=>e
+            ;
+            return n1.d(t, {
+                a: t
+            }), t;
+        }, n1.d = (e, t)=>{
+            for(var r in t)n1.o(t, r) && !n1.o(e, r) && Object.defineProperty(e, r, {
+                enumerable: !0,
+                get: t[r]
+            });
+        }, n1.g = (function() {
+            if ("object" == typeof globalThis) return globalThis;
+            try {
+                return this || new Function("return this")();
+            } catch (e) {
+                if ("object" == typeof window) return window;
+            }
+        })(), n1.o = (e, t)=>Object.prototype.hasOwnProperty.call(e, t)
+        ;
+        var r1 = {
+        };
+        return (()=>{
+            n1.d(r1, {
+                default: ()=>S1
+            });
+            var e6 = n1(4087), t4 = n1.n(e6);
+            const o1 = function(e) {
+                return new RegExp(/<[a-z][\s\S]*>/i).test(e);
+            }, a1 = function(e) {
+                var t = document.createElement("div");
+                return t.innerHTML = e, t.childNodes;
+            }, s1 = function(e, t) {
+                return Math.floor(Math.random() * (t - e + 1)) + e;
+            };
+            var i1 = "TYPE_CHARACTER", u = "REMOVE_CHARACTER", l = "REMOVE_ALL", c = "REMOVE_LAST_VISIBLE_NODE", p = "PAUSE_FOR", d = "CALL_FUNCTION", f = "ADD_HTML_TAG_ELEMENT", v = "CHANGE_DELETE_SPEED", h = "CHANGE_DELAY", m = "CHANGE_CURSOR", y = "PASTE_STRING", g = "HTML_TAG";
+            function E1(e, t5) {
+                var n = Object.keys(e);
+                if (Object.getOwnPropertySymbols) {
+                    var r = Object.getOwnPropertySymbols(e);
+                    t5 && (r = r.filter(function(t) {
+                        return Object.getOwnPropertyDescriptor(e, t).enumerable;
+                    })), n.push.apply(n, r);
+                }
+                return n;
+            }
+            function w(e) {
+                for(var t6 = 1; t6 < arguments.length; t6++){
+                    var n = null != arguments[t6] ? arguments[t6] : {
+                    };
+                    t6 % 2 ? E1(Object(n), !0).forEach(function(t) {
+                        N1(e, t, n[t]);
+                    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(n)) : E1(Object(n)).forEach(function(t) {
+                        Object.defineProperty(e, t, Object.getOwnPropertyDescriptor(n, t));
+                    });
+                }
+                return e;
+            }
+            function T(e7) {
+                return (function(e) {
+                    if (Array.isArray(e)) return b1(e);
+                })(e7) || (function(e) {
+                    if ("undefined" != typeof Symbol && null != e[Symbol.iterator] || null != e["@@iterator"]) return Array.from(e);
+                })(e7) || (function(e, t) {
+                    if (e) {
+                        if ("string" == typeof e) return b1(e, t);
+                        var n = Object.prototype.toString.call(e).slice(8, -1);
+                        return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? b1(e, t) : void 0;
+                    }
+                })(e7) || (function() {
+                    throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+                })();
+            }
+            function b1(e, t) {
+                (null == t || t > e.length) && (t = e.length);
+                for(var n = 0, r = new Array(t); n < t; n++)r[n] = e[n];
+                return r;
+            }
+            function A1(e, t) {
+                for(var n = 0; n < t.length; n++){
+                    var r = t[n];
+                    r.enumerable = r.enumerable || !1, r.configurable = !0, "value" in r && (r.writable = !0), Object.defineProperty(e, r.key, r);
+                }
+            }
+            function N1(e, t, n) {
+                return t in e ? Object.defineProperty(e, t, {
+                    value: n,
+                    enumerable: !0,
+                    configurable: !0,
+                    writable: !0
+                }) : e[t] = n, e;
+            }
+            const S1 = function() {
+                function n3(r3, E3) {
+                    var b = this;
+                    if ((function(e, t) {
+                        if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
+                    })(this, n3), N1(this, "state", {
+                        cursorAnimation: null,
+                        lastFrameTime: null,
+                        pauseUntil: null,
+                        eventQueue: [],
+                        eventLoop: null,
+                        eventLoopPaused: !1,
+                        reverseCalledEvents: [],
+                        calledEvents: [],
+                        visibleNodes: [],
+                        initialOptions: null,
+                        elements: {
+                            container: null,
+                            wrapper: document.createElement("span"),
+                            cursor: document.createElement("span")
+                        }
+                    }), N1(this, "options", {
+                        strings: null,
+                        cursor: "|",
+                        delay: "natural",
+                        pauseFor: 1500,
+                        deleteSpeed: "natural",
+                        loop: !1,
+                        autoStart: !1,
+                        devMode: !1,
+                        skipAddStyles: !1,
+                        wrapperClassName: "Typewriter__wrapper",
+                        cursorClassName: "Typewriter__cursor",
+                        stringSplitter: null,
+                        onCreateTextNode: null,
+                        onRemoveNode: null
+                    }), N1(this, "setupWrapperElement", function() {
+                        b.state.elements.container && (b.state.elements.wrapper.className = b.options.wrapperClassName, b.state.elements.cursor.className = b.options.cursorClassName, b.state.elements.cursor.innerHTML = b.options.cursor, b.state.elements.container.innerHTML = "", b.state.elements.container.appendChild(b.state.elements.wrapper), b.state.elements.container.appendChild(b.state.elements.cursor));
+                    }), N1(this, "start", function() {
+                        return b.state.eventLoopPaused = !1, b.runEventLoop(), b;
+                    }), N1(this, "pause", function() {
+                        return b.state.eventLoopPaused = !0, b;
+                    }), N1(this, "stop", function() {
+                        return b.state.eventLoop && ((0, e6.cancel)(b.state.eventLoop), b.state.eventLoop = null), b;
+                    }), N1(this, "pauseFor", function(e) {
+                        return b.addEventToQueue(p, {
+                            ms: e
+                        }), b;
+                    }), N1(this, "typeOutAllStrings", function() {
+                        return "string" == typeof b.options.strings ? (b.typeString(b.options.strings).pauseFor(b.options.pauseFor), b) : (b.options.strings.forEach(function(e) {
+                            b.typeString(e).pauseFor(b.options.pauseFor).deleteAll(b.options.deleteSpeed);
+                        }), b);
+                    }), N1(this, "typeString", function(e) {
+                        var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
+                        if (o1(e)) return b.typeOutHTMLString(e, t);
+                        if (e) {
+                            var n = b.options || {
+                            }, r = n.stringSplitter, a = "function" == typeof r ? r(e) : e.split("");
+                            b.typeCharacters(a, t);
+                        }
+                        return b;
+                    }), N1(this, "pasteString", function(e) {
+                        var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
+                        return o1(e) ? b.typeOutHTMLString(e, t, !0) : (e && b.addEventToQueue(y, {
+                            character: e,
+                            node: t
+                        }), b);
+                    }), N1(this, "typeOutHTMLString", function(e) {
+                        var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null, n = arguments.length > 2 ? arguments[2] : void 0, r = a1(e);
+                        if (r.length > 0) for(var o = 0; o < r.length; o++){
+                            var s = r[o], i = s.innerHTML;
+                            s && 3 !== s.nodeType ? (s.innerHTML = "", b.addEventToQueue(f, {
+                                node: s,
+                                parentNode: t
+                            }), n ? b.pasteString(i, s) : b.typeString(i, s)) : s.textContent && (n ? b.pasteString(s.textContent, t) : b.typeString(s.textContent, t));
+                        }
+                        return b;
+                    }), N1(this, "deleteAll", function() {
+                        var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "natural";
+                        return b.addEventToQueue(l, {
+                            speed: e
+                        }), b;
+                    }), N1(this, "changeDeleteSpeed", function(e) {
+                        if (!e) throw new Error("Must provide new delete speed");
+                        return b.addEventToQueue(v, {
+                            speed: e
+                        }), b;
+                    }), N1(this, "changeDelay", function(e) {
+                        if (!e) throw new Error("Must provide new delay");
+                        return b.addEventToQueue(h, {
+                            delay: e
+                        }), b;
+                    }), N1(this, "changeCursor", function(e) {
+                        if (!e) throw new Error("Must provide new cursor");
+                        return b.addEventToQueue(m, {
+                            cursor: e
+                        }), b;
+                    }), N1(this, "deleteChars", function(e) {
+                        if (!e) throw new Error("Must provide amount of characters to delete");
+                        for(var t = 0; t < e; t++)b.addEventToQueue(u);
+                        return b;
+                    }), N1(this, "callFunction", function(e, t) {
+                        if (!e || "function" != typeof e) throw new Error("Callbak must be a function");
+                        return b.addEventToQueue(d, {
+                            cb: e,
+                            thisArg: t
+                        }), b;
+                    }), N1(this, "typeCharacters", function(e8) {
+                        var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
+                        if (!e8 || !Array.isArray(e8)) throw new Error("Characters must be an array");
+                        return e8.forEach(function(e) {
+                            b.addEventToQueue(i1, {
+                                character: e,
+                                node: t
+                            });
+                        }), b;
+                    }), N1(this, "removeCharacters", function(e) {
+                        if (!e || !Array.isArray(e)) throw new Error("Characters must be an array");
+                        return e.forEach(function() {
+                            b.addEventToQueue(u);
+                        }), b;
+                    }), N1(this, "addEventToQueue", function(e, t) {
+                        var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2];
+                        return b.addEventToStateProperty(e, t, n, "eventQueue");
+                    }), N1(this, "addReverseCalledEvent", function(e, t) {
+                        var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2], r = b.options.loop;
+                        return r ? b.addEventToStateProperty(e, t, n, "reverseCalledEvents") : b;
+                    }), N1(this, "addEventToStateProperty", function(e, t) {
+                        var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2], r = arguments.length > 3 ? arguments[3] : void 0, o = {
+                            eventName: e,
+                            eventArgs: t || {
+                            }
+                        };
+                        return b.state[r] = n ? [
+                            o
+                        ].concat(T(b.state[r])) : [].concat(T(b.state[r]), [
+                            o
+                        ]), b;
+                    }), N1(this, "runEventLoop", function() {
+                        b.state.lastFrameTime || (b.state.lastFrameTime = Date.now());
+                        var e = Date.now(), n = e - b.state.lastFrameTime;
+                        if (!b.state.eventQueue.length) {
+                            if (!b.options.loop) return;
+                            b.state.eventQueue = T(b.state.calledEvents), b.state.calledEvents = [], b.options = w({
+                            }, b.state.initialOptions);
+                        }
+                        if (b.state.eventLoop = t4()(b.runEventLoop), !b.state.eventLoopPaused) {
+                            if (b.state.pauseUntil) {
+                                if (e < b.state.pauseUntil) return;
+                                b.state.pauseUntil = null;
+                            }
+                            var r, o = T(b.state.eventQueue), a = o.shift();
+                            if (!(n <= (r = a.eventName === c || a.eventName === u ? "natural" === b.options.deleteSpeed ? s1(40, 80) : b.options.deleteSpeed : "natural" === b.options.delay ? s1(120, 160) : b.options.delay))) {
+                                var E = a.eventName, A = a.eventArgs;
+                                switch(b.logInDevMode({
+                                    currentEvent: a,
+                                    state: b.state,
+                                    delay: r
+                                }), E){
+                                    case y:
+                                    case i1:
+                                        var N = A.character, S = A.node, C = document.createTextNode(N), _ = C;
+                                        b.options.onCreateTextNode && "function" == typeof b.options.onCreateTextNode && (_ = b.options.onCreateTextNode(N, C)), _ && (S ? S.appendChild(_) : b.state.elements.wrapper.appendChild(_)), b.state.visibleNodes = [].concat(T(b.state.visibleNodes), [
+                                            {
+                                                type: "TEXT_NODE",
+                                                character: N,
+                                                node: _
+                                            }
+                                        ]);
+                                        break;
+                                    case u:
+                                        o.unshift({
+                                            eventName: c,
+                                            eventArgs: {
+                                                removingCharacterNode: !0
+                                            }
+                                        });
+                                        break;
+                                    case p:
+                                        var O = a.eventArgs.ms;
+                                        b.state.pauseUntil = Date.now() + parseInt(O);
+                                        break;
+                                    case d:
+                                        var L = a.eventArgs, D = L.cb, M = L.thisArg;
+                                        D.call(M, {
+                                            elements: b.state.elements
+                                        });
+                                        break;
+                                    case f:
+                                        var x = a.eventArgs, P = x.node, R = x.parentNode;
+                                        R ? R.appendChild(P) : b.state.elements.wrapper.appendChild(P), b.state.visibleNodes = [].concat(T(b.state.visibleNodes), [
+                                            {
+                                                type: g,
+                                                node: P,
+                                                parentNode: R || b.state.elements.wrapper
+                                            }
+                                        ]);
+                                        break;
+                                    case l:
+                                        var j = b.state.visibleNodes, k = A.speed, Q = [];
+                                        k && Q.push({
+                                            eventName: v,
+                                            eventArgs: {
+                                                speed: k,
+                                                temp: !0
+                                            }
+                                        });
+                                        for(var F = 0, H = j.length; F < H; F++)Q.push({
+                                            eventName: c,
+                                            eventArgs: {
+                                                removingCharacterNode: !1
+                                            }
+                                        });
+                                        k && Q.push({
+                                            eventName: v,
+                                            eventArgs: {
+                                                speed: b.options.deleteSpeed,
+                                                temp: !0
+                                            }
+                                        }), o.unshift.apply(o, Q);
+                                        break;
+                                    case c:
+                                        var I = a.eventArgs.removingCharacterNode;
+                                        if (b.state.visibleNodes.length) {
+                                            var U = b.state.visibleNodes.pop(), q = U.type, G = U.node, Y = U.character;
+                                            b.options.onRemoveNode && "function" == typeof b.options.onRemoveNode && b.options.onRemoveNode({
+                                                node: G,
+                                                character: Y
+                                            }), G && G.parentNode.removeChild(G), q === g && I && o.unshift({
+                                                eventName: c,
+                                                eventArgs: {
+                                                }
+                                            });
+                                        }
+                                        break;
+                                    case v:
+                                        b.options.deleteSpeed = a.eventArgs.speed;
+                                        break;
+                                    case h:
+                                        b.options.delay = a.eventArgs.delay;
+                                        break;
+                                    case m:
+                                        b.options.cursor = a.eventArgs.cursor, b.state.elements.cursor.innerHTML = a.eventArgs.cursor;
+                                }
+                                b.options.loop && (a.eventName === c || a.eventArgs && a.eventArgs.temp || (b.state.calledEvents = [].concat(T(b.state.calledEvents), [
+                                    a
+                                ]))), b.state.eventQueue = o, b.state.lastFrameTime = e;
+                            }
+                        }
+                    }), r3) {
+                        if ("string" == typeof r3) {
+                            var A2 = document.querySelector(r3);
+                            if (!A2) throw new Error("Could not find container element");
+                            this.state.elements.container = A2;
+                        } else this.state.elements.container = r3;
+                    }
+                    E3 && (this.options = w(w({
+                    }, this.options), E3)), this.state.initialOptions = w({
+                    }, this.options), this.init();
+                }
+                var r2, E2;
+                return r2 = n3, E2 = [
+                    {
+                        key: "init",
+                        value: function() {
+                            var e, t;
+                            this.setupWrapperElement(), this.addEventToQueue(m, {
+                                cursor: this.options.cursor
+                            }, !0), this.addEventToQueue(l, null, !0), !window || window.___TYPEWRITER_JS_STYLES_ADDED___ || this.options.skipAddStyles || (e = ".Typewriter__cursor{-webkit-animation:Typewriter-cursor 1s infinite;animation:Typewriter-cursor 1s infinite;margin-left:1px}@-webkit-keyframes Typewriter-cursor{0%{opacity:0}50%{opacity:1}100%{opacity:0}}@keyframes Typewriter-cursor{0%{opacity:0}50%{opacity:1}100%{opacity:0}}", (t = document.createElement("style")).appendChild(document.createTextNode(e)), document.head.appendChild(t), window.___TYPEWRITER_JS_STYLES_ADDED___ = !0), !0 === this.options.autoStart && this.options.strings && this.typeOutAllStrings().start();
+                        }
+                    },
+                    {
+                        key: "logInDevMode",
+                        value: function(e) {
+                            this.options.devMode && console.log(e);
+                        }
+                    }
+                ], A1(r2.prototype, E2), n3;
+            }();
+        })(), r1.default;
+    })();
+});
+
+},{"process":"lDnB8"}],"lDnB8":[function(require,module,exports) {
+// shim for using process in browser
+var process = module.exports = {
+};
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+var cachedSetTimeout;
+var cachedClearTimeout;
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout() {
+    throw new Error('clearTimeout has not been defined');
+}
+(function() {
+    try {
+        if (typeof setTimeout === 'function') cachedSetTimeout = setTimeout;
+        else cachedSetTimeout = defaultSetTimout;
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') cachedClearTimeout = clearTimeout;
+        else cachedClearTimeout = defaultClearTimeout;
+    } catch (e1) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+})();
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) //normal enviroments in sane situations
+    return setTimeout(fun, 0);
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch (e) {
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch (e) {
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) //normal enviroments in sane situations
+    return clearTimeout(marker);
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e) {
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e) {
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) return;
+    draining = false;
+    if (currentQueue.length) queue = currentQueue.concat(queue);
+    else queueIndex = -1;
+    if (queue.length) drainQueue();
+}
+function drainQueue() {
+    if (draining) return;
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+    var len = queue.length;
+    while(len){
+        currentQueue = queue;
+        queue = [];
+        while(++queueIndex < len)if (currentQueue) currentQueue[queueIndex].run();
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+process.nextTick = function(fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) for(var i = 1; i < arguments.length; i++)args[i - 1] = arguments[i];
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) runTimeout(drainQueue);
+};
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function() {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {
+};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {
+};
+function noop() {
+}
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+process.listeners = function(name) {
+    return [];
+};
+process.binding = function(name) {
+    throw new Error('process.binding is not supported');
+};
+process.cwd = function() {
+    return '/';
+};
+process.chdir = function(dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() {
+    return 0;
+};
 
 },{}]},["grPCQ","cdtrO"], "cdtrO", "parcelRequire5b12")
 
