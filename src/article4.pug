@@ -1,16 +1,17 @@
 extends includes/baseblog
 
 block head
-	title escritos
+	title #{sitename} - #{articles[3].title}
+	meta(name="description" content=articles[3].description)
 
 block pageheader
 	header.headerContent
 		h1.titlePage
-			| Hermeneutica, el arte de descifrar
+			| #{articles[3].title}
 		p.subTitlePage
-			| El arte o la técnica de explicar, descifrar o interpretar
+			| #{articles[3].description}
 
-block content
+block blog
 	p Del griego hermeneutikos; Hermeneuo (significa Yo descifro) y Tekné que significa Arte, técnica, tejer… la Hermenéutica nace como 
 		strong “el arte o la técnica de explicar, descifrar o interpretar“ . Así que para explicar o descifrar yo tengo que hacer una hermenéutica de ese “algo”, averiguarlo, desencriptarlo, desenvolverlo. Tiene que haber un desarrollo de hechos que sucedan.
 	hr

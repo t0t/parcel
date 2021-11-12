@@ -6,7 +6,7 @@
   .grid.form-group
     .form-group__item
       label(for='entrada') Traduce palabras /nombres o frases:
-      input#entrada(type='text' placeholder='Escribe aqui...' value='Vacio existencial' autofocus='')
+      input#entrada(type='text' placeholder='Escribe algo...' value='' onfocus=`this.placeholder="";this.value=""`)
 
     .form-group__item
       label(for='fechanacimiento') Frecuencia fecha nacimiento:

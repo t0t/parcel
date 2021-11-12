@@ -1,16 +1,17 @@
 extends includes/baseblog
 
 block head
-	title escritos
+	title #{sitename} - #{articles[8].title}
+	meta(name="description" content=articles[8].description)
 
 block pageheader
 	header.headerContent
 		h1.titlePage
-			| Practicando la percepción
+			| #{articles[8].title}
 		p.subTitlePage
-			| Percibiendo desde el nivel abstracto de la mente
+			| #{articles[8].description}
 
-block content
+block blog
 	ul
 		li
 			p Cerramos los ojos, no vemos nada, nuestra visión, que es mental, se expande porque ya no “tropieza” con cosas.

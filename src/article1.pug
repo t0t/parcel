@@ -1,16 +1,17 @@
 extends includes/baseblog
 
 block head
-	title escritos
+	title #{sitename} - #{articles[0].title}
+	meta(name="description" content=articles[0].description)
 
 block pageheader
 	header.headerContent
 		h1.titlePage
-			| Des-cifrando con y desde 01234
+			| #{articles[0].title}
 		p.subTitlePage
+			| #{articles[0].description}
 
-block content
-  
+block blog
 	img(src="./img/bg2.jpg",alt="sostener el vacio existencial")
 
 	h2 ¿Te ocurre que pierdes repentinamente el interés por tus proyectos?

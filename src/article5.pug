@@ -1,16 +1,17 @@
 extends includes/baseblog
 
 block head
-    title escritos
+    title #{sitename} - #{articles[4].title}
+    meta(name="description" content=articles[4].description)
 
 block pageheader
     header.headerContent
         h1.titlePage
-            | La importancia de las Crisis
+            | #{articles[4].title}
         p.subTitlePage
-            | La noche oscura del alma
+            | #{articles[4].description}
 
-block content
+block blog
     h2 La crisis
     p No vivimos la vida, es la vida la que nos vive a nosotros. Creernos por encima de la vida causa todos nuestros problemas. El yo tiene NECESARIAMENTE que entrar en crisis para que las cosas se pongan en su lugar, se ordenen. Una crisis es lo mejor que te puede pasar, significa que tienes una oportunidad para saber qué eres y donde estás. Una oportunidad para habitar el lugar al que genuínamente perteneces.
 

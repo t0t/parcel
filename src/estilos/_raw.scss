@@ -21,7 +21,7 @@
 
 body {
     margin: 0;
-    color: $black-color;
+    color: $bodytextcolor;
     font-family: $mainff;
     font-size: $size-1;
     font-weight: $normal;
@@ -38,22 +38,45 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
 }
 
-// /* GRID */
-
+// GRID
 .grid {
     display: grid;
     gap: $size-0;
-    padding: $size-2;
+    // padding: $size-2;
     place-items: center;
+    
+    @media screen and (min-width: $bp2) {    
+        gap: $size-1;
+    }
+    @media screen and (min-width: $bp4) {    
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: $size-2;
+    }
+    @media screen and (min-width: $bp5) {    
+        grid-template-columns: repeat(auto-fit, minmax($size-7, 1fr));
+        gap: $size-4;
+    }
 }
 
-.grid__item img {
-    max-height: 50vh;
+.grid__item {
+    img {
+        max-height: 50vh;
+    }
 }
 
 figure {
     margin: 0;
     width: inherit;
+    display: grid;
+    place-items: center;
+    gap: $size-2;
+}
+figcaption {
+    // padding-top: $size-1;
+    font-size: $size-0;
+    line-height: $size-1;
+    padding-left: $size-1;
+    border-left: 1px solid $secondary-color;
 }
 
 video {
@@ -62,6 +85,14 @@ video {
 
 section {
     width: 100%;
+    padding: $size-2;
+
+    @media screen and (min-width: $bp3) {
+        padding-top: $size-4;
+        padding-right: $size-2;
+        padding-bottom: $size-4;
+        padding-left: $size-2;
+    }
 }
 
 .section--video {
@@ -72,24 +103,40 @@ section {
     gap: $size-3;
 }
 
+.sectionResaltadaClara {
+    background-color: $secondary-color;
+    color: $black-color;
+}
+
+.sectionResaltadaOscura {
+    color: $bodytextcolor;
+    background-color: $black-color;
+}
+
 h1 {
     font-size: $size-3;
     font-weight: $bold;
     text-align: center;
     margin: 0 $size-3;
+    letter-spacing: 1.5px;
 }
 
 h2,
 h3 {
-    font-size: $size-2;
-    line-height: $size-3;
-    margin-top: 0;
+    font-size: $size-1;
+    line-height: $size-1;
     margin-bottom: $size-0;
     text-align: center;
+    font-weight: $normal;
+    
+    @media screen and (min-width: $bp5) {
+        line-height: $size-3;
+        font-size: $size-2;
+    }
 }
 
-h3 {
-    font-weight: $normal;
+h4 {
+    line-height: $size-2;
 }
 
 .titlePage {
@@ -102,12 +149,39 @@ h3 {
     text-align: center;
     margin-top: 0;
     margin-bottom: $size-4;
+    color: $secondary-color;
 }
 
-p,
 ul,
-dl {
-    line-height: $size-2;
+dl,
+p strong,
+h3,
+blockquote {
+    // line-height: $size-2;
+    line-height: 1.95rem;
+    letter-spacing: 0.3px;
+    word-spacing: 1px;
+}
+
+p {
+    line-height: 1.8;
+    font-size: $size-1;
+    margin-bottom: $size-2;
+    
+    @media screen and (min-width: $bp5) {
+        // font-size: $size-2;
+        // line-height: $size-2;
+        // font-size: $size-1;
+    }
+}
+
+p > a {
+    padding-bottom: $size-1;
+    color: #b0b0b0;
+}
+
+li {
+    margin-bottom: $size-1;
 }
 
 ul,
@@ -117,10 +191,37 @@ ol {
 
 small {
     font-size: $size-0;
+    // line-height: $size-0;
 }
 
 a {
     color: $black-color;
+}
+
+p,
+.tmpl-post li,
+img,
+pre,
+ul {
+    padding-left: $size-2;
+    padding-right: $size-2;
+    max-width: 100%;
+
+    @media screen and (min-width: $bp3) {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: $size-9;
+    }
+    // @media screen and (min-width: $bp3) {
+    //     margin-left: auto;
+    //     margin-right: auto;
+    //     max-width: $size-10;
+    // }
+}
+
+ul {
+    padding-left: 0;
+    list-style-position: inside;
 }
 
 .tachado {
@@ -152,14 +253,15 @@ a {
 }
 
 blockquote {
+    color: $secondary-color;
     border-left: $size-1;
-    border-left-width: $size-0;
+    border-left-width: $size--1;
     border-left-color: $secondary-color;
-    border-left-style: double;
-    padding-left: $size-2;
+    border-left-style: solid;
+    padding-left: $size-3;
     padding-top: $size-2;
     padding-bottom: $size-2;
-    font-weight: $bold;
+    // font-weight: $bold;
     margin-top: $size-4;
     margin-bottom: $size-4;
     max-width: $size-9;
@@ -180,11 +282,12 @@ hr {
     display: grid;
     align-content: center;
     justify-items: center;
+    color: $black-color;
     background-color: $grey-color-2;
-    background-repeat: no-repeat;
-    background-size: $size-5;
-    background-attachment: fixed;
-    background-position: center $size-5;
+    // background-repeat: no-repeat;
+    // background-size: $size-5;
+    // background-attachment: fixed;
+    // background-position: center $size-5;
 }
 
 .footer-site .contact-me {
@@ -196,18 +299,18 @@ hr {
     text-align: center;
 }
 
-.footer-site footer nav a {
-    text-decoration: none;
-    color: $grey-color-3;
-}
-
-.footer-site footer nav a:hover {
-    color: $grey-color-2;
-}
-
-.footer-site .followme {
-    margin-top: $size-3;
-    text-align: center;
+.footer-site {
+    footer nav a {
+        text-decoration: none;
+        color: $grey-color-3;
+    }
+    footer nav a:hover {
+        color: $grey-color-2;
+    }
+    .followme {
+        margin-top: $size-3;
+        text-align: center;
+    }
 }
 
 .franjapie {
@@ -598,6 +701,7 @@ img {
     list-style: none;
     margin-top: 0;
     margin-bottom: 0;
+    padding: $size-3;
     background-color: $grey-color-1;
 }
 
@@ -615,25 +719,6 @@ img {
     -moz-box-shadow: 7px 7px 0px -3px rgba(0, 0, 0, 0.1);
     box-shadow: 7px 7px 0px -3px rgba(0, 0, 0, 0.1);
     padding: $size-1;
-    /* border-radius: $size-0; /
-}
-
-.postlist-moreinfo {
-  padding-top: $size-3;
-}
-
-.postlist-item:before {
-  display: inline-block;
-  pointer-events: none;
-  content: ""counter(start-from, decimal-leading-zero) ". ";
-  line-height: 100%;
-  text-align: right;
-}
-
-.postlist-date,
-.postlist-item:before {
-  font-size: $size-0;
-  /* 13px /16 */
 }
 
 .postlist-date {
@@ -678,8 +763,15 @@ img {
     margin-bottom: $size-4;
 }
 
-/* Tags */
+.blog {
+    h2 {
+        font-size: $size-2;
+        padding-top: $size-4;
+        padding-bottom: $size-4;
+    }
+}
 
+/* Tags */
 .post-tag {
     display: inline-flex;
     align-items: center;
@@ -1006,7 +1098,7 @@ img.hover-shadow {
 }
 
 .section--cover {
-    padding-top: 0;
+    // padding-top: 0;
     position: relative;
 }
 
@@ -1018,14 +1110,14 @@ img.hover-shadow {
 
 /* MEDIAQUERIES */
 
-@media screen and (min-width: 319px) {
+@media screen and (min-width: $bp0) {
 
-    .section--metodo {
-        padding-top: $size-3;
-        background-color: $grey-color-1;
+    // .section--metodo {
+    //     padding-top: $size-3;
+    //     background-color: $grey-color-1;
 
-        text-align: center;
-    }
+    //     text-align: center;
+    // }
 
     #metodosvg {
         /* width y height vienen por js */
@@ -1115,13 +1207,13 @@ img.hover-shadow {
         fill: $grey-color-2;
     }
 
-    .section--metodo .txt {
-        display: none;
-    }
+    // .section--metodo .txt {
+    //     display: none;
+    // }
 
-    .section--metodo .txt--active {
-        display: block;
-    }
+    // .section--metodo .txt--active {
+    //     display: block;
+    // }
 
     /* SIDE NAV */
 
@@ -1166,6 +1258,11 @@ img.hover-shadow {
         font-size: $size-3;
     }
 
+    .mainContent {
+        background-color: $grey-color-5;
+        overflow: auto;
+    }
+
     #main {
         -ms-transition: margin-left .3s;
         -webkit-transition: margin-left .3s;
@@ -1178,10 +1275,8 @@ img.hover-shadow {
         font-size: $size-2;
     }
 
-    h3 {
-        font-size: $size-1;
-        line-height: 1.7;
-    }
+   
+    
 
     .tmpl-home,
     .tmpl-page,
@@ -1191,11 +1286,10 @@ img.hover-shadow {
 
     .subTitlePage {
         margin-bottom: $size-3;
+        color: $secondary-color;
     }
 
-    .grid {
-        gap: $size-1;
-    }
+    
 
     .footer-site__item {
         padding: $size-1;
@@ -1214,10 +1308,12 @@ img.hover-shadow {
 
 }
 
-@media screen and (min-width: 374px) {
+@media screen and (min-width: $bp1) {
     .footer-site {
         padding-top: $size-3;
     }
+    
+    
 
     .overlay {
         display: block;
@@ -1230,7 +1326,7 @@ img.hover-shadow {
 
 }
 
-@media screen and (min-width: 767px) {
+@media screen and (min-width: $bp3) {
 
     .codigos-ejemplo {
         display: grid;
@@ -1252,14 +1348,7 @@ img.hover-shadow {
         color: $white-color;
         background-color: $black-color;
     }
-
-    /* GRID */
-
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: $size-2;
-    }
-
+    
     .section--video {
         grid-template-columns: 1fr 1fr;
         grid-template-areas: "video texto";
@@ -1283,7 +1372,7 @@ img.hover-shadow {
 
 }
 
-@media screen and (min-width: 1023px) {
+@media screen and (min-width: $bp4) {
     #metodosvg {
         max-height: 50vh;
     }
@@ -1292,25 +1381,23 @@ img.hover-shadow {
         font-size: $size-3;
     }
 
-    h3 {
-        font-size: $size-2;
-    }
+    
 
     .nav {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        display: inline-flex;
+        // grid-template-columns: 1fr 1fr 1fr 1fr;
         position: fixed;
         list-style: none;
-        transition: top 0.3s;
+        transition: top 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
         z-index: 1;
         margin: 0;
         padding-right: $size-3;
         text-align: center;
         height: $size-4;
         align-items: center;
-        justify-items: end;
-        font-weight: $bold;
-        gap: inherit;
+        // justify-items: end;
+        font-weight: $medium;
+        // gap: inherit;
         height: $size-5;
         top: inherit;
         right: 0;
@@ -1320,6 +1407,8 @@ img.hover-shadow {
         text-decoration: none;
         padding: $size-0 $size-1;
         justify-self: end;
+        border-radius: 25px;
+        margin-left: $size-1;
     }
 
     .nav-item-active a {
@@ -1350,44 +1439,35 @@ img.hover-shadow {
 
 }
 
-@media screen and (min-width: 1439px) {
+@media screen and (min-width: $bp5) {
 
     h1 {
         font-size: $size-4;
-    }
-
-    .grid {
-        padding: $size-4;
-        gap: $size-4;
-        grid-template-columns: repeat(auto-fit, minmax($size-7, 1fr));
     }
 
 }
 
-@media screen and (min-width: 2559px) {
+@media screen and (min-width: $bp6) {
 
     h1 {
         font-size: $size-4;
-    }
-
-    h3 {
-        font-size: $size-3;
     }
 
     small {
         font-size: $size-2;
     }
 
-    p {
+    p,
+    pre {
         font-size: $size-2;
         max-width: $bp5;
     }
-
+ 
     p,
     ul {
         line-height: $size-3;
     }
-
+    
     .gallery {
         gap: $size-4;
         grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
@@ -1406,37 +1486,40 @@ img.hover-shadow {
 /* Animacion svg en cover */
 
 #grafica {
-    background-color: $grey-color-1;
+    background-color: $grey-color-5;
     position: relative;
+    circle {
+        stroke: white;
+    }
+    g path {
+        fill: $primary-color;
+        fill-opacity: 0.8;
+        transform-box: fill-box;
+    }
+    g text {
+        stroke: none;
+        font-size: $size-1;
+    }
 }
 
-#grafica g path {
-    fill: $primary-color;
-    fill-opacity: 0.8;
-    transform-box: fill-box;
-}
 
-#grafica g text {
-    stroke: none;
-    font-size: $size-1;
-}
 
 #animcover {
-    border: 1px solid black;
     border-radius: 50%;
     overflow: hidden;
     height: 450px;
-}
+    background-color: $secondary-color;
 
-#animcover circle:hover {
-    cursor: grab;
-}
-
-#animcover circle:active {
-    fill-opacity: 0.8;
-    cursor: -moz-grabbing;
-    cursor: -webkit-grabbing;
-    cursor: grabbing;
+    circle:hover {
+        cursor: grab;
+    }
+    
+    circle:active {
+        fill-opacity: 0.8;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+        cursor: grabbing;
+    }
 }
 
 #animcover circle:nth-child(1) {
@@ -1561,7 +1644,6 @@ img.hover-shadow {
     position: absolute;
     top: 50px;
     left: 50px;
-    background-color: red;
     width: 100px;
     height: 300px;
 }

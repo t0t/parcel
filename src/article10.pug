@@ -1,14 +1,15 @@
 extends includes/baseblog
 
 block head
-    title escritos
+    title #{sitename} - #{articles[9].title}
+    meta(name="description" content=articles[9].description)
 
 block pageheader
     header.headerContent
         h1.titlePage
-            | Sobredosis de información, creatividad y distracciones
+            | #{articles[9].title}
         p.subTitlePage
-            | Faltas y/o excesos
+            | #{articles[9].description}
 
-block content
+block blog
     img(src="./img/blog/creatividad-universal.svg", alt="sostener el vacio existencial") 
